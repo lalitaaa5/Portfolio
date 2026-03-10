@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Lalita Poudel | Business Administration student with leadership experience in retail and food service." />
+  <title>Lalita Poudel | Resume Site</title>
+  <style>
+    /* ==========================================
+       Lalita Poudel - Single File Resume Website
+       Ready for GitHub Pages
+       ========================================== */
+
+    :root {
+      --bg: #f6f8fc;
+      --surface: rgba(255, 255, 255, 0.92);
+      --surface-strong: #ffffff;
+      --text: #162033;
+      --muted: #60708a;
+      --primary: #4f46e5;
+      --primary-dark: #3730a3;
+      --accent: #06b6d4;
+      --border: rgba(15, 23, 42, 0.08);
+      --shadow-sm: 0 8px 20px rgba(15, 23, 42, 0.06);
+      --shadow-md: 0 14px 35px rgba(15, 23, 42, 0.10);
+      --shadow-lg: 0 24px 60px rgba(15, 23, 42, 0.14);
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 28px;
+      --max-width: 1180px;
+      --transition-fast: 180ms ease;
+      --transition-base: 280ms ease;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(79, 70, 229, 0.08), transparent 35%),
+        radial-gradient(circle at top right, rgba(6, 182, 212, 0.08), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color var(--transition-fast), opacity var(--transition-fast);
+    }
+
+    a:hover {
+      color: var(--primary);
+    }
+
+    .container {
+      width: min(calc(100% - 2rem), var(--max-width));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: relative;
+      overflow: hidden;
+      padding: 5rem 0 4rem;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 45%, #243b53 100%);
+      color: #fff;
+    }
+
+    .site-header::before,
+    .site-header::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(40px);
+      pointer-events: none;
+    }
+
+    .site-header::before {
+      top: -60px;
+      left: -20px;
+      width: 240px;
+      height: 240px;
+      background: rgba(79, 70, 229, 0.35);
+    }
+
+    .site-header::after {
+      right: -40px;
+      bottom: -80px;
+      width: 260px;
+      height: 260px;
+      background: rgba(6, 182, 212, 0.25);
+    }
+
+    .hero {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 1rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(10px);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      margin: 1rem 0 0.75rem;
+      font-size: clamp(2.5rem, 5vw, 4.75rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .hero p {
+      max-width: 62ch;
+      color: rgba(255, 255, 255, 0.84);
+      font-size: 1.05rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin-top: 1.5rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0.8rem 1.2rem;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff;
+      box-shadow: 0 12px 24px rgba(79, 70, 229, 0.22);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px rgba(79, 70, 229, 0.28);
+      color: #fff;
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.10);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      color: #fff;
+    }
+
+    .contact-card {
+      padding: 1.5rem;
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .contact-card h2 {
+      margin: 0 0 1rem;
+      font-size: 1.1rem;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 0.75rem;
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    .contact-list span {
+      color: rgba(255, 255, 255, 0.68);
+      display: block;
+      font-size: 0.9rem;
+    }
+
+    main {
+      padding: 3.5rem 0 4rem;
+    }
+
+    .content-layout {
+      display: grid;
+      grid-template-columns: 1.55fr 0.95fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .stack {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      backdrop-filter: blur(12px);
+      padding: 1.75rem;
+      transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base), background var(--transition-base);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(79, 70, 229, 0.15);
+      background: var(--surface-strong);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      margin-bottom: 1.1rem;
+      font-size: 1.45rem;
+      letter-spacing: -0.02em;
+    }
+
+    .summary-text,
+    .card p,
+    .card li {
+      color: #334155;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 1.4rem;
+      border-left: 2px solid rgba(79, 70, 229, 0.14);
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -7px;
+      top: 0.35rem;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      box-shadow: 0 0 0 6px rgba(79, 70, 229, 0.08);
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .item-title {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .item-meta {
+      margin-top: 0.2rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .item-date {
+      font-size: 0.92rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .item-list {
+      margin: 0.9rem 0 0;
+      padding-left: 1.1rem;
+    }
+
+    .item-list li {
+      margin-bottom: 0.65rem;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .skill-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.7rem 1rem;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #ffffff, #f3f6fb);
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      color: #334155;
+      font-size: 0.92rem;
+      font-weight: 600;
+      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.05);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .skill-chip:hover {
+      transform: translateY(-2px);
+      border-color: rgba(79, 70, 229, 0.18);
+      box-shadow: 0 10px 24px rgba(79, 70, 229, 0.10);
+    }
+
+    .education-item + .education-item {
+      margin-top: 1.3rem;
+      padding-top: 1.3rem;
+      border-top: 1px solid rgba(15, 23, 42, 0.08);
+    }
+
+    .education-item h3,
+    .strengths-card h2 {
+      margin: 0 0 0.35rem;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .strengths-card {
+      background: linear-gradient(145deg, #0f172a, #1e293b);
+      color: #fff;
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .strengths-card p {
+      color: rgba(255, 255, 255, 0.82);
+      margin: 0.8rem 0 0;
+    }
+
+    .footer {
+      padding: 0 0 3rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .content-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .site-header {
+        padding: 4rem 0 3rem;
+      }
+
+      main {
+        padding: 2.5rem 0 3rem;
+      }
+
+      .card,
+      .contact-card,
+      .strengths-card {
+        padding: 1.25rem;
+        border-radius: 22px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.2rem, 9vw, 3.25rem);
+      }
+
+      .item-header {
+        flex-direction: column;
+        gap: 0.3rem;
+      }
+
+      .container {
+        width: min(calc(100% - 1.25rem), var(--max-width));
+      }
+    }
+
+    @media (max-width: 520px) {
+      .skills {
+        gap: 0.55rem;
+      }
+
+      .skill-chip,
+      .hero-actions a {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container hero">
+      <div>
+        <div class="hero-badge">Business Administration Student</div>
+        <h1>Lalita Poudel</h1>
+        <p>
+          Business Administration student at SUNY Oswego with hands-on leadership experience in fast-paced retail and food service environments. Proven ability to supervise teams, resolve customer issues, support daily operations, and maintain high service standards.
+        </p>
+        <p>
+          Seeking a customer service, operations, or management trainee role where I can contribute to team performance and operational efficiency.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="mailto:onlybarsha311@gmail.com" id="contactBtn">Contact Me</a>
+          <a class="btn btn-secondary" href="#experience">View Experience</a>
+        </div>
+        <p id="contactMessage" style="display:none; margin-top:1rem; color:rgba(255,255,255,0.85); font-size:0.95rem;">
+          If the button does not open your email app, email me directly at
+          <a href="mailto:onlybarsha311@gmail.com" style="text-decoration:underline;">onlybarsha311@gmail.com</a>.
+        </p>
+      </div>
+
+      <aside class="contact-card">
+        <h2>Contact</h2>
+        <div class="contact-list">
+          <div>
+            <span>Location</span>
+            Liverpool, NY
+          </div>
+          <div>
+            <span>Phone</span>
+            <a href="tel:3154591877">315-459-1877</a>
+          </div>
+          <div>
+            <span>Email</span>
+            <a href="mailto:onlybarsha311@gmail.com">onlybarsha311@gmail.com</a>
+          </div>
+          <div>
+            <span>Languages</span>
+            English • Nepali • Hindi
+          </div>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+    <div class="container content-layout">
+      <section class="stack">
+        <article class="card">
+          <h2>Professional Summary</h2>
+          <p class="summary-text">
+            Recognized for strong communication, reliability, and leadership potential, including selection for a management development program. Experienced in customer-facing roles that require teamwork, fast decision-making, and consistent service standards across busy shifts and changing priorities.
+          </p>
+        </article>
+
+        <article class="card" id="experience">
+          <h2>Experience</h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="item-header">
+                <div>
+                  <h3 class="item-title">Shift Lead</h3>
+                  <div class="item-meta">Taco Bell · Liverpool, NY</div>
+                </div>
+                <div class="item-date">Add dates</div>
+              </div>
+              <ul class="item-list">
+                <li>Supervised up to 10 employees during assigned shifts, delegating tasks and monitoring performance to maintain efficient and safe operations.</li>
+                <li>Resolved customer concerns, operational issues, and team conflicts in real time to keep shifts running smoothly and protect service quality.</li>
+                <li>Maintained high customer service standards during peak hours by supporting staff, responding to issues quickly, and reinforcing team accountability.</li>
+                <li>Handled escalated customer inquiries and service issues with professionalism and sound judgment.</li>
+              </ul>
+            </div>
+
+            <div class="timeline-item">
+              <div class="item-header">
+                <div>
+                  <h3 class="item-title">Associate</h3>
+                  <div class="item-meta">Aldi · Baldwinsville, NY</div>
+                </div>
+                <div class="item-date">Add dates</div>
+              </div>
+              <ul class="item-list">
+                <li>Provided efficient front-line customer support by answering product questions, resolving concerns, and contributing to a positive shopping experience.</li>
+                <li>Supported store presentation and daily operations by maintaining clean, organized, and well-stocked areas.</li>
+                <li>Followed company policies, safety procedures, and operational standards to support an efficient and safe store environment.</li>
+              </ul>
+            </div>
+
+            <div class="timeline-item">
+              <div class="item-header">
+                <div>
+                  <h3 class="item-title">Crew Member</h3>
+                  <div class="item-meta">Chipotle · Clay, NY</div>
+                </div>
+                <div class="item-date">April 2021 – March 2024</div>
+              </div>
+              <ul class="item-list">
+                <li>Delivered fast, accurate customer service in a high-volume restaurant environment by answering questions, handling requests, and resolving issues.</li>
+                <li>Collaborated with team members during busy shifts to maintain smooth operations, accurate order flow, and timely service.</li>
+                <li>Selected for a management development program in recognition of leadership potential, reliability, and strong performance.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2>Leadership &amp; Volunteer Experience</h2>
+          <div class="timeline-item">
+            <div class="item-header">
+              <div>
+                <h3 class="item-title">Volunteer</h3>
+                <div class="item-meta">UNICEF · Syracuse, NY</div>
+              </div>
+            </div>
+            <ul class="item-list">
+              <li>Helped organize a refugee support event serving approximately 30 to 50 attendees.</li>
+              <li>Supported event logistics by preparing and serving meals for community members.</li>
+              <li>Assisted with post-event cleanup to maintain an organized and welcoming environment.</li>
+            </ul>
+          </div>
+        </article>
+      </section>
+
+      <aside class="stack">
+        <article class="card">
+          <h2>Education</h2>
+          <div class="education-item">
+            <h3>SUNY Oswego</h3>
+            <div>Bachelor of Science in Business Administration</div>
+            <div class="muted">Oswego, NY</div>
+            <div class="muted">Expected December 2025</div>
+          </div>
+          <div class="education-item">
+            <h3>Onondaga Community College</h3>
+            <div>Associate of Science in Business Administration</div>
+            <div class="muted">Syracuse, NY</div>
+            <div class="muted">August 2024</div>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2>Core Skills</h2>
+          <div class="skills">
+            <span class="skill-chip">Team Leadership</span>
+            <span class="skill-chip">Customer Service</span>
+            <span class="skill-chip">Shift Supervision</span>
+            <span class="skill-chip">Staff Training</span>
+            <span class="skill-chip">Conflict Resolution</span>
+            <span class="skill-chip">Store Operations</span>
+            <span class="skill-chip">Food Safety &amp; Compliance</span>
+            <span class="skill-chip">Communication</span>
+            <span class="skill-chip">Problem-Solving</span>
+            <span class="skill-chip">Time Management</span>
+          </div>
+        </article>
+
+        <article class="strengths-card">
+          <h2>Strengths</h2>
+          <p>Leadership experience supervising teams in high-pressure environments.</p>
+          <p>Strong customer service and conflict resolution skills.</p>
+          <p>Operational reliability with experience in fast-paced retail and food service settings.</p>
+        </article>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      © <span id="year"></span> Lalita Poudel. Built as a single-file static site for GitHub Pages.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const contactBtn = document.getElementById('contactBtn');
+    const contactMessage = document.getElementById('contactMessage');
+
+    contactBtn.addEventListener('click', function () {
+      setTimeout(function () {
+        contactMessage.style.display = 'block';
+      }, 800);
+    });
+  </script>
+</body>
+</html>
